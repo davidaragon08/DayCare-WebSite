@@ -1,0 +1,72 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.testimonials {
+  @include section-padding;
+}
+
+.testimonials-container {
+  @include container;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonial-card {
+  @include card;
+  padding: $spacing-xl;
+}
+
+.testimonial-stars {
+  color: $color-secondary;
+  font-size: $font-size-lg;
+  margin-bottom: $spacing-md;
+  letter-spacing: 2px;
+}
+
+.testimonial-card blockquote {
+  font-size: $font-size-base;
+  color: $color-text;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: $spacing-lg;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: $border-radius-full;
+  background: $color-secondary-light;
+  color: $color-secondary-dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: $font-size-sm;
+  color: $color-text;
+}
+
+.testimonial-author span {
+  font-size: $font-size-xs;
+  color: $color-text-light;
+}

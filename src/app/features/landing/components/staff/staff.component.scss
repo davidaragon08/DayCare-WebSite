@@ -1,0 +1,70 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.staff {
+  @include section-padding;
+  background: $color-bg-warm;
+}
+
+.staff-container {
+  @include container;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.staff-card {
+  @include card;
+  padding: $spacing-xl;
+  text-align: center;
+}
+
+.staff-avatar {
+  margin: 0 auto $spacing-md;
+}
+
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: $border-radius-full;
+  background: linear-gradient(135deg, $color-primary, $color-primary-light);
+  color: $color-text-inverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xl;
+  margin: 0 auto;
+}
+
+.staff-card h3 {
+  font-size: $font-size-lg;
+  color: $color-primary-dark;
+  margin-bottom: $spacing-xs;
+}
+
+.staff-role {
+  display: block;
+  font-size: $font-size-sm;
+  color: $color-secondary;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+}
+
+.staff-card p {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  line-height: 1.6;
+}

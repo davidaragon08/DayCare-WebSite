@@ -1,0 +1,135 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, $color-bg 0%, $color-bg-alt 50%, #E8F4F0 100%);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba($color-primary-light, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba($color-secondary-light, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba($color-accent-light, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  @include container;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding-top: $spacing-4xl;
+  padding-bottom: $spacing-3xl;
+}
+
+.hero-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-primary-dark;
+  margin-bottom: $spacing-lg;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond-to(md) {
+    font-size: $font-size-5xl;
+  }
+}
+
+.hero-subtitle {
+  font-size: $font-size-lg;
+  color: $color-text-light;
+  max-width: 550px;
+  margin: 0 auto $spacing-xl;
+
+  @include respond-to(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-3xl;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-full;
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  transition: all $transition-base;
+
+  @include respond-to(md) {
+    font-size: $font-size-lg;
+    padding: $spacing-md $spacing-2xl;
+  }
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: $color-text-inverse;
+
+  &:hover {
+    background: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-text-inverse;
+    transform: translateY(-2px);
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: $spacing-2xl;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-family: $font-heading;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-secondary;
+  line-height: 1;
+
+  @include respond-to(md) {
+    font-size: $font-size-5xl;
+  }
+}
+
+.stat-label {
+  display: block;
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  margin-top: $spacing-xs;
+}

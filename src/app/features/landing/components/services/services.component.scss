@@ -1,0 +1,58 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.services {
+  @include section-padding;
+  background: $color-bg-warm;
+}
+
+.services-container {
+  @include container;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  @include card;
+  padding: $spacing-xl;
+  text-align: center;
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto $spacing-md;
+  padding: $spacing-sm;
+  border-radius: $border-radius-full;
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.service-card h3 {
+  font-size: $font-size-lg;
+  color: $color-primary-dark;
+  margin-bottom: $spacing-sm;
+}
+
+.service-card p {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  line-height: 1.6;
+}

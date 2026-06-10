@@ -1,0 +1,91 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.footer {
+  background: $color-primary-dark;
+  color: rgba($color-text-inverse, 0.9);
+  padding: $spacing-3xl 0 $spacing-lg;
+}
+
+.footer-container {
+  @include container;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+.footer-brand h3 {
+  font-size: $font-size-2xl;
+  color: $color-text-inverse;
+  margin-bottom: $spacing-sm;
+}
+
+.footer-brand p {
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  margin-bottom: $spacing-lg;
+}
+
+.footer-social {
+  display: flex;
+  gap: $spacing-sm;
+
+  a {
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background: rgba($color-text-inverse, 0.1);
+    color: $color-text-inverse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    transition: background $transition-fast;
+
+    &:hover {
+      background: rgba($color-text-inverse, 0.2);
+    }
+  }
+}
+
+.footer-links h4 {
+  font-size: $font-size-base;
+  color: $color-text-inverse;
+  margin-bottom: $spacing-md;
+}
+
+.footer-links ul li {
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-sm;
+  color: rgba($color-text-inverse, 0.7);
+
+  a {
+    color: rgba($color-text-inverse, 0.7);
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-text-inverse;
+    }
+  }
+}
+
+.footer-bottom {
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-text-inverse, 0.15);
+  text-align: center;
+
+  p {
+    font-size: $font-size-sm;
+    color: rgba($color-text-inverse, 0.6);
+  }
+}

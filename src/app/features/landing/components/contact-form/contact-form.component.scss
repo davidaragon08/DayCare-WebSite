@@ -1,0 +1,156 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.contact {
+  @include section-padding;
+  background: $color-bg-alt;
+}
+
+.contact-container {
+  @include container;
+}
+
+.contact-content {
+  display: grid;
+  gap: $spacing-2xl;
+
+  @include respond-to(md) {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.info-item {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: $color-primary;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  strong {
+    display: block;
+    font-family: $font-heading;
+    font-size: $font-size-base;
+    color: $color-text;
+    margin-bottom: 2px;
+  }
+
+  span {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+  }
+}
+
+.contact-form {
+  background: $color-text-inverse;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+}
+
+.form-group {
+  margin-bottom: $spacing-lg;
+
+  label {
+    display: block;
+    font-family: $font-heading;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    color: $color-text;
+    margin-bottom: $spacing-xs;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 2px solid #E2E8F0;
+    border-radius: $border-radius-md;
+    font-family: $font-body;
+    font-size: $font-size-base;
+    color: $color-text;
+    background: $color-bg;
+    transition: border-color $transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      background: $color-text-inverse;
+    }
+
+    &.is-invalid {
+      border-color: $color-error;
+    }
+
+    &::placeholder {
+      color: #A0AEC0;
+    }
+  }
+
+  small {
+    display: block;
+    font-size: $font-size-xs;
+    color: $color-error;
+    margin-top: $spacing-xs;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @include respond-to(sm) {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  padding: $spacing-md;
+  margin-top: $spacing-md;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.success-message {
+  background: $color-text-inverse;
+  padding: $spacing-3xl;
+  border-radius: $border-radius-lg;
+  text-align: center;
+  box-shadow: $shadow-sm;
+
+  svg {
+    width: 56px;
+    height: 56px;
+    color: $color-success;
+    margin-bottom: $spacing-md;
+  }
+
+  h3 {
+    font-size: $font-size-2xl;
+    color: $color-success;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $color-text-light;
+    margin-bottom: $spacing-xl;
+  }
+}
